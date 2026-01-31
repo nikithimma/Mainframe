@@ -1,21 +1,18 @@
 IDENTIFICATION DIVISION.
-PROGRAM-ID. REVERSE-NUMBER.
+PROGRAM-ID. PALIN.
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       01 NUM      PIC 9(5).
-       01 REV      PIC 9(5) VALUE 0.
-       01 REM      PIC 9.
-       01 TEMP     PIC 9(5).
+       01 N   PIC 9(5).
+       01 T   PIC 9(5).
+       01 R   PIC 9(5) VALUE 0.
+       01 D   PIC 9.
        PROCEDURE DIVISION.
-           ACCEPT NUM
-           DISPLAY "Enter a five digit number: " NUM
-           MOVE NUM TO TEMP
-           PERFORM UNTIL TEMP = 0
-               DIVIDE TEMP BY 10
-                   GIVING TEMP
-                   REMAINDER REM
-               MULTIPLY REV BY 10 GIVING REV
-               ADD REM TO REV
+           ACCEPT N
+           MOVE N TO T
+           PERFORM UNTIL T = 0
+               COMPUTE D = FUNCTION MOD(T,10)
+               COMPUTE R = R * 10 + D
+               COMPUTE T= T / 10
            END-PERFORM
-           DISPLAY "Reversed number is: " REV
+           DISPLAY "REVERSED NUMBER IS :" R          
            STOP RUN.
