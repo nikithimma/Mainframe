@@ -25,3 +25,5 @@ PROGRAM-ID. GRADE.
                END-IF
            END-IF
            DISPLAY "Grade is:" GRADE
+           STOP RUN.
+      
